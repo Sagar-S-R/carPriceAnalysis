@@ -1,68 +1,72 @@
 # Car Price Classification using Machine Learning
 
 ## Overview
-This project applies various machine learning classifiers to predict the `Owner_Count` of a car based on features like brand, model, year, engine size, fuel type, transmission, mileage, and number of doors. The dataset contains 10,000 entries and 10 features.
+This project applies multiple machine learning classification algorithms to predict the number of previous owners of a car based on its features. The dataset contains various attributes such as brand, model, year, engine size, fuel type, transmission type, mileage, number of doors, and price.
 
-## Dataset
-- **Source:** `car_price_dataset.csv`
+## Dataset Information
+- **Number of records:** 10,000
 - **Features:**
-  - `Brand`, `Model` (Categorical)
-  - `Year`, `Engine_Size`, `Mileage`, `Doors`, `Owner_Count`, `Price` (Numerical)
-  - `Fuel_Type`, `Transmission` (Categorical)
-- **Target Variable:** `Owner_Count`
+  - `Brand` (Categorical)
+  - `Model` (Categorical)
+  - `Year` (Integer)
+  - `Engine_Size` (Float)
+  - `Fuel_Type` (Categorical)
+  - `Transmission` (Categorical)
+  - `Mileage` (Integer)
+  - `Doors` (Integer)
+  - `Owner_Count` (Integer, Target Variable)
+  - `Price` (Integer)
 
-## Dependencies
-Ensure you have the following libraries installed before running the code:
-```bash
-pip install numpy pandas matplotlib seaborn scikit-learn
-```
+## Libraries Used
+- `numpy`
+- `pandas`
+- `matplotlib`
+- `seaborn`
+- `scikit-learn`
 
-## Project Workflow
-1. **Load Dataset:** Read and display the dataset.
-2. **Exploratory Data Analysis (EDA):**
-   - Summary statistics
-   - Missing values check
-   - Data visualization (distribution plots, correlation heatmaps)
-3. **Feature Selection & Preprocessing:**
-   - Drop non-numeric features for simplicity
-   - Standardize numerical features
-   - Train-test split (80-20 split)
-4. **Model Training & Evaluation:**
-   - Logistic Regression
-   - Support Vector Machine (SVM)
-   - K-Nearest Neighbors (KNN)
-   - Decision Tree
-   - Random Forest
-   - Hyperparameter tuning using `GridSearchCV`
-5. **Comparison of Model Performances:**
-   - Accuracy scores
-   - Confusion matrices
-   - Classification reports
-   - Bar chart comparison
+## Data Preprocessing
+- Handling missing values (if any)
+- Encoding categorical variables
+- Splitting dataset into training and testing sets (80% train, 20% test)
+- Scaling numerical features using `StandardScaler`
 
-## Results
-- Logistic Regression Accuracy: **~20.15%**
-- SVM Accuracy: **~19.55%**
-- KNN Accuracy: **~20.3%**
-- Decision Tree Accuracy: **~20.6%**
-- Random Forest (Best Model) tuned using `GridSearchCV`.
+## Models Implemented
+1. **Logistic Regression**
+2. **Support Vector Machine (SVM) with GridSearch for Hyperparameter Tuning**
+3. **K-Nearest Neighbors (KNN) with GridSearch for Best Neighbors Selection**
+4. **Decision Tree with GridSearch for Optimal Depth**
+5. **Random Forest with GridSearch for Best Parameters**
 
-## How to Run
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+## Performance Evaluation
+- **Metrics Used:**
+  - Accuracy
+  - Precision
+  - Recall
+  - F1-score
+  - Confusion Matrix
+  - ROC Curve (where applicable)
+
+- **Model Comparison:** A bar plot is generated to compare the accuracies of different models visually.
+
+## How to Run the Project
+1. Install required dependencies:
+   ```sh
+   pip install numpy pandas matplotlib seaborn scikit-learn
    ```
-2. Place `car_price_dataset.csv` in the project directory.
-3. Run the Python script:
-   ```bash
-   python main.py
-   ```
+2. Place the dataset (`car_price_dataset.csv`) in the project directory.
+3. Run the Python script or Jupyter Notebook containing the machine learning models.
+
+## Results & Observations
+- The Decision Tree and Random Forest models showed slightly better accuracy compared to other models.
+- Logistic Regression and SVM performed poorly due to the complex, multi-class nature of the target variable.
+- Feature scaling significantly improved KNN performance.
 
 ## Future Improvements
-- Encode categorical features (`Brand`, `Model`, `Fuel_Type`, `Transmission`)
-- Try other models like XGBoost, Gradient Boosting, or Neural Networks
-- Improve feature engineering
+- Implement feature engineering to extract more meaningful insights.
+- Use advanced ensemble methods like Gradient Boosting or XGBoost.
+- Perform hyperparameter tuning with more parameters for better optimization.
+- Apply deep learning techniques for potentially improved classification accuracy.
+
 
 ## Author
 - **Your Name**
